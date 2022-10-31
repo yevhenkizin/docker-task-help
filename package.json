@@ -1,0 +1,22 @@
+{
+  "name": "docker-task",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Erbidium/docker-task.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Erbidium/docker-task/issues"
+  },
+  "homepage": "https://github.com/Erbidium/docker-task#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
