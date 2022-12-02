@@ -75,4 +75,4 @@ jobs:
 
       - name: Push Docker image
         run: |
-          docker push erbidium/docker-task
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/docker-task
