@@ -40,4 +40,4 @@ jobs:
           context: ./
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/nodejs-app:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/docker-task:latest
