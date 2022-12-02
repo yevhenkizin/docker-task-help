@@ -96,9 +96,9 @@ jobs:
 
       - name: Run Docker image
         run: |
-          docker run -p 80:80 -d ${{ secrets.DOCKERHUB_USERNAME }}/docker-task
+          docker run -p 80:80 -d --hostname 0.0.0.0 ${{ secrets.DOCKERHUB_USERNAME }}/docker-task
 
       - name: curl
         uses: wei/curl@v1
         with:
-          args: docker_task:80
+          args: 0.0.0.0:80
