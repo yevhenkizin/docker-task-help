@@ -101,4 +101,4 @@ jobs:
       - name: curl
         uses: wei/curl@v1
         with:
-          args: http://127.0.0.1:80
+          args: http://localhost:80
