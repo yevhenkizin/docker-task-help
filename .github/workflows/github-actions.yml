@@ -94,8 +94,11 @@ jobs:
         run: |
           docker pull ${{ secrets.DOCKERHUB_USERNAME }}/docker-task:latest
 
+      - name: Create Docker Network
+        run: docker network create data
+
       - name: Run Docker image
         run: |
-          docker run -p 80:80 -d --hostname docker-task ${{ secrets.DOCKERHUB_USERNAME }}/docker-task
+          docker run -p 80:80 -d --network data ${{ secrets.DOCKERHUB_USERNAME }}/docker-task
           docker container ls
-          curl docker-task:80
+          curl http://docker-task:80
