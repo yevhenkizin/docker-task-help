@@ -101,4 +101,4 @@ jobs:
       - name: curl
         uses: wei/curl@v1
         with:
-          args: https://localhost:80
+          args: https://docker-task:80
