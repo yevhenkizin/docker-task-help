@@ -101,4 +101,6 @@ jobs:
         run: |
           docker run -p 80:80 -d --network data --name docker-task ${{ secrets.DOCKERHUB_USERNAME }}/docker-task
           docker container ls
-          curl http://docker-task:80
+
+      - name: curl
+        run: docker run --rm --network data curlimages/curl:latest http://docker-task:80
