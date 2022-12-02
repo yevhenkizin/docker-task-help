@@ -82,7 +82,7 @@ jobs:
     runs-on: ubuntu-latest
     services:
       docker-task:
-        image: ${{ secrets.DOCKERHUB_USERNAME }}/docker-task
+        image: erbidium/docker-task
         ports:
           - 80:80
     steps:
