@@ -103,4 +103,4 @@ jobs:
           docker container ls
 
       - name: curl
-        run: curl 127.0.0.1:80
+        run: curl localhost:80
