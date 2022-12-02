@@ -76,3 +76,29 @@ jobs:
       - name: Push Docker image
         run: |
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/docker-task
+
+  run-docker-image:
+    needs: push-docker-image
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Login to DockerHub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Pull Docker image
+        run: |
+          docker pull ${{ secrets.DOCKERHUB_USERNAME }}/docker-task:latest
+
+      - name: Run Docker image
+        run: |
+          docker run -p 80:80 --cpus=1 -m 512m ${{ secrets.DOCKERHUB_USERNAME }}/docker-task
+
+      - name: curl
+        uses: wei/curl@v1
+        with:
+          args: https://localhost:80
