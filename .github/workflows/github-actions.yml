@@ -98,4 +98,4 @@ jobs:
         run: |
           docker run -p 80:80 -d ${{ secrets.DOCKERHUB_USERNAME }}/docker-task
           docker container ls
-          curl http://0.0.0.0:80
+          curl https://0.0.0.0:80
