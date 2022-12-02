@@ -36,7 +36,7 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
 
-      - name: Build and push
+      - name: Build docker image
         uses: docker/build-push-action@v3
         with:
           context: ./
@@ -101,4 +101,4 @@ jobs:
       - name: curl
         uses: wei/curl@v1
         with:
-          args: https://docker-task:80
+          args: http://docker-task:80
