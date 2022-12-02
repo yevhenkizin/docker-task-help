@@ -87,4 +87,4 @@ jobs:
           - 80:80
     steps:
       - name: curl
-        run: curl docker-task
+        run: curl localhost:80
