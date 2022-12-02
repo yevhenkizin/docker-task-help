@@ -80,27 +80,11 @@ jobs:
   run-docker-image:
     needs: push-docker-image
     runs-on: ubuntu-latest
+    services:
+      docker-task:
+        image: ${{ secrets.DOCKERHUB_USERNAME }}/docker-task
+        ports:
+          - 80:80
     steps:
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
-
-      - name: Login to DockerHub
-        uses: docker/login-action@v2
-        with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
-
-      - name: Pull Docker image
-        run: |
-          docker pull ${{ secrets.DOCKERHUB_USERNAME }}/docker-task:latest
-
-      - name: Create Docker Network
-        run: docker network create data
-
-      - name: Run Docker image
-        run: |
-          docker run -p 80:80 -d --network host --name docker-task ${{ secrets.DOCKERHUB_USERNAME }}/docker-task
-          docker container ls
-
       - name: curl
-        run: curl localhost:80
+        run: curl docker-task:80
