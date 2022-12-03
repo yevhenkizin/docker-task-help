@@ -96,6 +96,6 @@ jobs:
 
       - name: Run Docker image
         run: |
-          docker run -p 192.168.1.100:8080:80 -d ${{ secrets.DOCKERHUB_USERNAME }}/docker-task
+          docker run -p 80:80 -d ${{ secrets.DOCKERHUB_USERNAME }}/docker-task
           docker container ls
-          curl 192.168.1.100:8080
+          curl localhost:80
