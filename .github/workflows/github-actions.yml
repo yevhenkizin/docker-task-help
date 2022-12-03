@@ -99,5 +99,11 @@ jobs:
         run: |
           docker run --network connect --name myimage -p 80:80 -d ${{ secrets.DOCKERHUB_USERNAME }}/docker-task
 
+      - name: Info
+        id: info
+        shell: bash
+        run: |
+          docker inspect myimage
+
       - name: curl
         run: docker run --rm --network connect curlimages/curl:latest http://myimage
