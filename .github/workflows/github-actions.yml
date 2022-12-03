@@ -100,4 +100,4 @@ jobs:
           docker run --network connect --name myimage -p 80:80 -d ${{ secrets.DOCKERHUB_USERNAME }}/docker-task
 
       - name: curl
-        run: docker run --rm --network connect curlimages/curl:latest http://myimage/
+        run: docker run --rm --network connect curlimages/curl:latest http://myimage
