@@ -1,5 +1,6 @@
 name: Code Analysis
 on:
+  workflow_dispatch:
   push:
     branches: [ ci-cd-task ]
   pull_request:
